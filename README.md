@@ -4,7 +4,7 @@ Generate password hashes using various algorithms
 
 ## Usage
 
-1. Download the script from the repository.
+1. Download the [script](https://github.com/cm090/hashify/releases/latest/download/hashify.jar) from the repository.
 2. Make sure [JDK21](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-21) is installed on your system.
 3. Run the script
    ```bash
