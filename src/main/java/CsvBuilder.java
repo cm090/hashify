@@ -1,8 +1,9 @@
-import hashing.Entry;
 import com.opencsv.CSVWriter;
+import hashing.Entry;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.List;
 
 public class CsvBuilder {
@@ -38,7 +39,8 @@ public class CsvBuilder {
 
   void setOutputFile(String outputFile, String inputTitle) {
     try {
-      csvWriter = new CSVWriter(new FileWriter(new File(outputFile).toPath().toString()));
+      csvWriter = new CSVWriter(
+          new FileWriter(new File(outputFile).toPath().toString(), Charset.defaultCharset()));
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

@@ -1,6 +1,7 @@
 import hashing.AlgorithmManager;
 import hashing.Entry;
 import java.io.File;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -42,7 +43,7 @@ public class Main {
   }
 
   private void promptForFiles() {
-    try (Scanner sc = new Scanner(System.in)) {
+    try (Scanner sc = new Scanner(System.in, Charset.defaultCharset())) {
       System.out.print("Enter input file path: ");
       inputFile = verifyFile(sc.nextLine(), true);
       System.out.print("Enter output file path: ");
@@ -77,7 +78,7 @@ public class Main {
   }
 
   private void processFile() {
-    try (Scanner sc = new Scanner(new File(inputFile))) {
+    try (Scanner sc = new Scanner(new File(inputFile), Charset.defaultCharset())) {
       while (sc.hasNextLine()) {
         String line = sc.nextLine();
         if (!line.isEmpty()) {
