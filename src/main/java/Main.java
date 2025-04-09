@@ -38,7 +38,7 @@ public class Main {
         break;
       default:
         System.out.println("Usage: java -jar hashify.jar <inputFile> <outputFile>");
-        System.exit(1);
+        throw new RuntimeException();
     }
   }
 
@@ -55,16 +55,16 @@ public class Main {
     File file = new File(filePath);
     if (shouldExist && !file.exists()) {
       System.err.println("File does not exist: " + filePath);
-      System.exit(1);
+      throw new RuntimeException();
     } else if (!shouldExist && file.exists()) {
       System.err.println("File already exists: " + filePath);
-      System.exit(1);
+      throw new RuntimeException();
     } else if (file.isDirectory()) {
       System.err.println("Path is a directory: " + filePath);
-      System.exit(1);
+      throw new RuntimeException();
     } else if (shouldExist && !file.canRead()) {
       System.err.println("Cannot read file: " + filePath);
-      System.exit(1);
+      throw new RuntimeException();
     }
     return filePath;
   }
@@ -72,7 +72,7 @@ public class Main {
   private void checkExtension() {
     if (!outputFile.endsWith(OUTPUT_FILE_EXTENSION)) {
       System.err.println("Output file must have " + OUTPUT_FILE_EXTENSION + " extension");
-      System.exit(1);
+      throw new RuntimeException();
     }
     csvBuilder.setOutputFile(outputFile, INPUT_STRING_TYPE);
   }
@@ -87,7 +87,7 @@ public class Main {
       }
     } catch (Exception e) {
       System.err.println("Error reading input file: " + e.getMessage());
-      System.exit(1);
+      throw new RuntimeException();
     }
   }
 
