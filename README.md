@@ -44,4 +44,4 @@ java -jar hashify.jar path/to/input.txt path/to/output.csv
     mvn clean compile assembly:single
     ```
    
-   Located at `target/hashify-1.0-jar-with-dependencies.jar`.
+   Located at `target/hashify-<version>-jar-with-dependencies.jar`.
